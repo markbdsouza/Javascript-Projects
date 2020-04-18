@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rate Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h2>Exchage Rate Calculator</h2>
+    <div class="description">Choose the currency and the amounts to get exchanged</div>
+    <div class="row">
+        <select class="currency" name="fromCurrency" id="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+        </select>
+        <input type="text" class="amount fromAmount" name="fromAmount" id="fromAmount" value="1">
+    </div>
+    <div class="row">
+        <button class="swap">Swap</button>
+        <span class="converter">This is the amount to get exchanged</span>
+    </div>
+
+    <div class="row">
+        <select class="currency" name="toCurrency" id="toCurrency">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+        </select>
+        <input type="text" disabled class="amount toAmount" name="toAmount" id="toAmount">
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+
+</html>

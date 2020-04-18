@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  font-family: 'Baloo Bhaina 2', cursive;
+  margin: 0;
+  padding: 0;
+  background-color: lightgrey;
+}
+
+h2 {
+  color: limegreen;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  margin: 0.4rem;
+  width: 30%;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.currency {
+  width: 40%;
+  height: 2rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+  outline: none;
+  padding-left: 1rem;
+  /* -moz-appearance: none;
+  -webkit-appearance: none; */
+  border: 1px solid #dedede;
+}
+
+.amount {
+  width: 60%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  outline: none;
+  text-align: right;
+  padding-right: 1rem;
+  font-size: 1.5rem;
+  border: 1px solid #dedede;
+}
+
+.row .swap {
+  width: 20%;
+  border-radius: 0.5rem;
+  font-family: 'Baloo Bhaina 2', cursive;
+  font-size: 1rem;
+  text-align: center;
+  justify-content: center;
+  outline: none;
+  background-color: limegreen;
+  color: white;
+  padding: 0.1rem;
+}
+
+.row .converter {
+  padding-left: 1rem;
+}
