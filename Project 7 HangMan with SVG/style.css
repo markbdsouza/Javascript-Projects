@@ -52,6 +52,7 @@ h1 {
 
 .wrong-letters-container span {
   font-size: 24px;
+  display: inline;
 }
 
 .word {
