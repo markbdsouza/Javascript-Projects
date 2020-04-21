@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <p>Find the hidden word - enter a letter</p>
+    <div class="game-container">
+        <svg class="figure-container" height="250" weight="250">
+            <line x1="60" y1="20" x2="140" y2="20" />
+            <line x1="140" y1="20" x2="140" y2="50" />
+            <line x1="60" y1="20" x2="60" y2="250" />
+            <line x1="20" y1="250" x2="100" y2="250" />
+
+            <circle cx="140" cy="70" r="20" class="figure-part" />
+
+            <line x1="140" y1="90" x2="140" y2="160" class="figure-part" />
+            <line x1="140" y1="100" x2="100" y2="140" class="figure-part" />
+            <line x1="140" y1="100" x2="180" y2="140" class="figure-part" />
+            <line x1="140" y1="160" x2="180" y2="200" class="figure-part" />
+            <line x1="140" y1="160" x2="100" y2="200" class="figure-part" />
+        </svg>
+
+
+        <div class="wrong-letters-container" id="wrong-letters">
+            <p>Wrong</p>
+            <span>WYonnnnnnnnnnnnng</span>
+        </div>
+
+        <div class="word" id="word">
+            <div class="letter">h</div>
+            <div class="letter">e</div>
+            <div class="letter">l</div>
+            <div class="letter">l</div>
+            <div class="letter">u</div>
+        </div>
+
+    </div>
+
+    <div class="popup-container" id="popup-container">
+        <div class="popup">
+            <h2 id="final-message">Won</h2>
+            <button id="play" class="play">Play Again</button>
+        </div>
+    </div>
+
+    <div class="notification-container" id="notification-container">
+        <p>You have already entered this letter</p>
+    </div>
+
+</body>
+
+</html>
