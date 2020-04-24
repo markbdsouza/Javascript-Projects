@@ -14,11 +14,11 @@
         <h4>Your Balance</h4>
         <h1 id="balance">$0.00</h1>
         <div class="inc-exp-container">
-            <div>
+            <div class="income-header">
                 <h4>Income</h4>
                 <p id="money-plus" class="money plus">$100.00</p>
             </div>
-            <div>
+            <div class="expense-header">
                 <h4>Expense</h4>
                 <p id="money-minus" class="money minus">-$30.00</p>
             </div>
@@ -29,7 +29,7 @@
             <li class="plus">Cash <span>+400</span><button class="delete-btn">x</button> </li>
         </ul>
 
-        <h3>Add new transaction</h3>
+        <h3 class="addTextHeader">Add new transaction</h3>
         <form action="" id="form">
             <div class="form-control">
                 <label for="text">Text</label>
@@ -40,9 +40,10 @@
                 <label for="amount">Amount<br> (negative for expense, positive for income)</label>
                 <input type="number" name="amount" id="amount" placeholder="0.00">
             </div>
-            <button class="btn">Add transaction</button>
+            <button class="btn">Add</button>
         </form>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
