@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom, lightcoral, coral);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+}
+
+.music-container {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.navigation {
+  display: flex;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  border: 2px solid white;
+  padding: 10px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 20px;
+  /* margin-top: 10px; */
+  background-color: rgba(70, 80, 90, 0.5);
+  /* background-color: white; */
+  z-index: 1;
+}
+
+.rotate {
+  animation: rotation 5s infinite linear;
+}
+
+.progress-container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  height: 7px;
+
+  background-color: lightgrey;
+  position: relative;
+}
+
+.progress {
+  width: 10%;
+  background-color: crimson;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 7px;
+}
+
+.action-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 20px;
+  color: rgba(100, 200, 200, 0.5);
+}
+
+.action-btn-big {
+  font-size: 200%;
+  border: 1px solid;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: all 1s;
+}
+
+.action-btn-big.paused {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  z-index: 100;
+}
+
+.img-container img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all 1.5s;
+}
+
+.img-container:hover img {
+  transform: scale(1.2);
+  border: 0;
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  color: White;
+  margin: 0px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* letter-spacing: 5px; */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border: 2px solid white;
+  border-bottom: 0;
+  transform: scale(0.3) translateY(50%);
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.title.show {
+  opacity: 1;
+  transform: scale(1) translateY(0%);
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
