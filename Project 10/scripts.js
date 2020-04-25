@@ -6,6 +6,7 @@ const playIcon = document.getElementById('playIcon');
 const img = document.getElementById('img');
 const title = document.getElementById('title');
 const progress = document.getElementById('progress');
+const progressContainer = document.getElementById('progress-container');
 const musicList = [
   {
     id: 1,
@@ -32,10 +33,6 @@ function loadMusic(index) {
   img.src = musicList[index].img;
   audioEl.dataset.index = index;
   title.textContent = musicList[index].title;
-}
-
-function restartSong() {
-  audioEl.currentTime = 0;
 }
 
 function playClicked() {
@@ -96,9 +93,17 @@ function check(e) {
   }
 }
 
+function setProgress(e) {
+  const width = e.target.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+  audio.currentTime = (clickX / width) * duration;
+}
+
 loadMusic(1);
 playBtn.addEventListener('click', playClicked);
 prev.addEventListener('click', prevClicked);
 next.addEventListener('click', nextClicked);
 audioEl.addEventListener('timeupdate', check);
-console.log(audioEl.paused);
+progressContainer.addEventListener('click', setProgress);
+audioEl.addEventListener('ended', nextClicked);

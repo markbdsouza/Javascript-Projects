@@ -23,6 +23,10 @@ body {
   width: 300px;
   margin: 0 auto;
   text-align: right;
+  /* background-color: white; */
+  border: 1px crimson;
+  border-radius: 15px;
+  color: Black;
 }
 
 .navigation {
@@ -38,50 +42,55 @@ body {
   margin: 0 auto;
   border-radius: 20px;
   /* margin-top: 10px; */
-  background-color: rgba(70, 80, 90, 0.5);
+  background-color: rgba(70, 80, 90, 0.9);
   /* background-color: white; */
   z-index: 1;
-}
 
-.rotate {
-  animation: rotation 5s infinite linear;
+  box-shadow: 0 20px 20px 0 rgba(65, 5, 5, 0.6);
+  padding-left: 30%;
 }
 
 .progress-container {
   width: 60%;
   margin-left: auto;
   margin-right: 20px;
-  border: 1px solid;
+  /* border: 1px solid; */
   border-radius: 10px;
   height: 7px;
 
   background-color: lightgrey;
   position: relative;
+  cursor: pointer;
 }
 
 .progress {
-  width: 10%;
   background-color: crimson;
   border: 0;
   position: absolute;
   top: 0;
   left: 0;
   height: 7px;
+  transition: width 0.1s linear;
 }
 
 .action-btn {
   background-color: transparent;
   outline: none;
   border: none;
-  padding: 20px;
-  color: rgba(100, 200, 200, 0.5);
+
+  margin: 0 10px;
+  color: rgba(22, 12, 12, 0.9);
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .action-btn-big {
   font-size: 200%;
-  border: 1px solid;
+  border: 2px solid;
+  padding: 20px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(135, 236, 186, 0.9);
   transition: all 1s;
 }
 
@@ -96,19 +105,45 @@ body {
   height: 100px;
   width: 100px;
   z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 20px 20px 0 rgba(65, 5, 5, 0.6);
+
+  transform: translateY(10%);
+}
+
+.img-container::after {
+  content: '';
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -50%);
 }
 
 .img-container img {
   height: 100px;
   width: 100px;
-  border-radius: 50%;
   border: 3px solid white;
+  border-radius: 50%;
   transition: all 1.5s;
+  animation: rotation 5s infinite linear;
+  animation-play-state: paused;
 }
 
+img.rotate {
+  animation-play-state: running;
+}
 .img-container:hover img {
   transform: scale(1.2);
   border: 0;
+}
+
+.music-info {
+  position: relative;
 }
 
 .title {
