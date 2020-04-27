@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #293644;
-  color: #f7f8fa;
+  background-color: rgb(240, 165, 0);
+  color: rgb(219, 219, 219);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,9 +20,8 @@ body {
   position: fixed;
   bottom: 30px;
   left: 30px;
-
   padding: 3px 10px;
-  background-color: teal;
+  background-color: rgb(219, 219, 219);
   cursor: pointer;
 }
 
@@ -30,26 +29,45 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #1d2830;
+  background: rgba(207, 117, 0, 0.8);
   padding: 20px 0;
+  transform: translateY(-100%);
+  transition: all 1s ease-in-out;
 }
 
 .settings.visible {
-  display: flex;
+  transform: translateY(0%);
 }
 
-.difficulty {
+.entry {
+  display: inline;
+  margin: 30px;
+}
+
+select {
   margin-left: 10px;
-  padding: 3px;
+  padding: 3px 10px;
+  width: 300px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 2px;
+}
+
+select:focus,
+button:focus {
+  outline: 0;
 }
 
 .container {
-  width: 500px;
-  background-color: #323f52;
+  width: auto;
+  min-width: 600px;
+  background-color: rgb(207, 117, 0);
+  color: rgb(219, 219, 219);
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -58,11 +76,13 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
 }
 
 .container h2 {
   padding: 10px;
-  background-color: #1d2830;
+  background-color: rgb(219, 219, 219);
+  color: black;
   width: 90%;
   align-items: center;
   text-align: center;
@@ -80,36 +100,80 @@ body {
   right: 10px;
 }
 
-.container h1 {
-  margin: 0;
-  padding: 10px 0px;
+.word {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  /* transition: 1s all ease-out; */
+  animation: slide-into 3s ease-out;
+}
+
+.word.prev,
+.word.next {
+  color: rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.word-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .container input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+}
+
+.time-container span,
+.score-container span {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .end-game-container {
   position: fixed;
   border: 1px solid;
-  background: black;
-  height: 200px;
-  width: 400px;
+  background: rgb(207, 117, 0);
+  height: 300px;
+  width: 600px;
   padding: 20px;
   display: none;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
 }
 
 .end-game-container.visible {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
 }
 
 .end-game-container.visible button {
   margin-top: 20px;
   padding: 10px;
+  align-items: center;
+  margin: 30px auto 0;
+  font-family: 'Open Sans', sans-serif;
+  width: 80%;
   cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+@keyframes slide-into {
+  0% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

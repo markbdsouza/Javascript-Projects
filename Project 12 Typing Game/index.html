@@ -17,13 +17,20 @@
 
     <div class="settings visible" id="settings">
         <form id="setting-form">
-            <div class="">
+            <div class="entry">
+                <label for="gameType">Choose Game</label>
+                <select name="gameType" id="gameType" class="gameType">
+                    <option value="wordTyper">Infinte Mode</option>
+                    <option value="paraTyper" selected>Paragraph Speed Typer</option>
+                    <option value="alphabetTyper">Alphabets</option>
+                </select>
+            </div>
+            <div class="entry">
                 <label for="difficulty">Difficulty</label>
                 <select name="difficulty" id="difficulty" class="difficulty">
                     <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
+                    <option value="medium" selected>Medium</option>
                     <option value="hard">Hard</option>
-
                 </select>
             </div>
         </form>
@@ -32,15 +39,17 @@
     <div class="container">
         <h2>Speed Typer</h2>
         <small>Type the following:</small>
-        <h1 id='word'>Inpuasd</h1>
+        <div class="word-container">
+
+        </div>
         <input type="text" autocomplete="off" placeholder="Type here..." id="wordInput">
 
         <p class="time-container">Time left: <span id='time'>10s</span></p>
         <p class="score-container">Score: <span class="score">0</span></p>
 
         <div id="end-game-container" class="end-game-container">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, dolore!
         </div>
+
 
     </div>
     <script src="script.js"></script>
