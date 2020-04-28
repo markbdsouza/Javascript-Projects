@@ -14,15 +14,9 @@ body {
   align-items: center;
   height: 100vh;
   position: relative;
-}
-
-.settings-btn {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  padding: 3px 10px;
-  background-color: rgb(219, 219, 219);
-  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  transition: background-color 1s ease-out;
 }
 
 .settings {
@@ -63,29 +57,43 @@ button:focus {
   outline: 0;
 }
 
-.container {
-  width: auto;
+.container,
+.end-game-container {
   min-width: 600px;
   background-color: rgb(207, 117, 0);
   color: rgb(219, 219, 219);
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: 0 auto;
-  border: 1px solid;
+  border: 1px solid rgba(219, 219, 219, 1);
   padding: 5px;
   display: flex;
   flex-direction: column;
   position: relative;
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.container {
+  width: auto;
+}
+
+.end-game-container {
+  width: 350px;
+  padding: 10px;
 }
 
 .container h2 {
   padding: 10px;
-  background-color: rgb(219, 219, 219);
+  background-color: rgba(219, 219, 219, 0.4);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   color: black;
   width: 90%;
   align-items: center;
   text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .container .time-container {
@@ -139,20 +147,23 @@ button:focus {
 
 .end-game-container {
   position: fixed;
-  border: 1px solid;
-  background: rgb(207, 117, 0);
   height: 300px;
+  /* border: 1px solid;
+  background: rgb(207, 117, 0);
+  
   width: 600px;
   padding: 20px;
-  display: none;
-  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-
-.end-game-container.visible {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4); */
+  transform: translateY(-300%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.end-game-container.visible {
+  transform: translateY(0%);
 }
 
 .end-game-container.visible button {
@@ -165,6 +176,50 @@ button:focus {
   cursor: pointer;
   border-radius: 10px;
   font-size: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: auto 0;
+}
+
+.footer .settings-btn {
+  /* padding: 3px 10px; */
+  margin: 0;
+  padding: 0;
+  background-color: rgb(219, 219, 219);
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 0;
+}
+
+.footer .settings-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer .settings-btn a img {
+  /* margin: 0; */
+  padding: 0;
+  height: inherit;
+  width: 50px;
+}
+
+a {
+  style: none;
+}
+
+.twitter {
+  color: #1da1f2;
 }
 
 @keyframes slide-into {
