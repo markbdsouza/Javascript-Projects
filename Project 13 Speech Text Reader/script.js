@@ -56,6 +56,8 @@ const data = [
   },
 ];
 
+let voices = [];
+
 data.forEach(createBox);
 
 function createBox(item, index) {
@@ -64,22 +66,58 @@ function createBox(item, index) {
   const { image, text } = item;
   box.innerHTML = `<img src='${image}' alt='${text}' />
   <p class='info'>${text}</p>`;
+  box.addEventListener('click', () => {
+    setTextMsg(text);
+    speakText();
+
+    box.classList.add('active');
+    setTimeout(() => box.classList.remove('active'), 1000);
+  });
   main.appendChild(box);
 }
 
-let voices = [];
+const message = new SpeechSynthesisUtterance();
+
+function setSpeech() {
+  return new Promise(function (resolve, reject) {
+    let synth = window.speechSynthesis;
+    let id;
+
+    id = setInterval(() => {
+      if (synth.getVoices().length !== 0) {
+        resolve(synth.getVoices());
+        clearInterval(id);
+      }
+    }, 10);
+  });
+}
+
+function setTextMsg(msg) {
+  message.text = msg;
+}
+
+function speakText() {
+  speechSynthesis.speak(message);
+}
 
 function getVoices() {
-  voices = window.speechSynthesis.getVoices();
-  console.log(speechSynthesis.getVoices());
-  voices.forEach((voice) => {
-    const option = document.createElement('option');
-    option.value = voice.name;
-    option.innerText = `${voice.name} ${voice.lang}`;
-    console.log(option);
-    voicesSelect.appendChild(option);
+  // voices = window.speechSynthesis.getVoices();
+
+  let voicesPromise = setSpeech();
+  voicesPromise.then((res) => {
+    voices = res;
+    voices.forEach((voice) => {
+      const option = document.createElement('option');
+      option.value = voice.name;
+      option.innerText = `${voice.name} ${voice.lang}`;
+      voicesSelect.appendChild(option);
+    });
   });
-  console.log(voices);
+}
+
+function setVoice(e) {
+  message.voice = voices.find((voice) => voice.name === e.target.value);
+  console.log(message);
 }
 
 speechSynthesis.addEventListener('voicesChanged', getVoices);
@@ -92,7 +130,9 @@ closeBtn.addEventListener('click', () =>
 );
 
 getVoices();
-console.log('object');
 
-const a = speechSynthesis.getVoices();
-console.log(a);
+voicesSelect.addEventListener('change', setVoice);
+readBtn.addEventListener('click', () => {
+  setTextMsg(textArea.value);
+  speakText();
+});
