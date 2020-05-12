@@ -1,4 +1,5 @@
 const pokeContainer = document.getElementById('poke-container');
+const pokeDetails = document.getElementById('poke-details');
 const pokemonNumber = 150;
 const colors = {
   fire: '#FDDFDF',
@@ -25,10 +26,9 @@ const getPokemon = async (id) => {
 };
 
 const fetchPokemons = async () => {
-  for (let i = 1; i < pokemonNumber; i++) {
+  for (let i = 1; i <= pokemonNumber; i++) {
     await getPokemon(i);
   }
-  //   await getPokemon(1);
 };
 
 fetchPokemons();
@@ -38,15 +38,19 @@ function createPokemonCards(pokemon) {
   pokemonEl.classList.add('pokemon');
   const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
   const type = pokemon.types.map((el) => el.type.name)[0];
+  const color = colors[type];
+  pokemonEl.style.backgroundColor = color;
 
   pokemonEl.innerHTML = `<div class='img-container'>
-  <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"/>
+  <img src="https://pokeres.bastionbot.org/images/pokemon/${
+    pokemon.id
+  }.png"/></div>
   <div class='info'>
-    <span class='number'>${pokemon.id}</span>
+    <span class='number'>#${pokemon.id.toString().padStart(3, '0')}</span>
     <h3 class='name'>${name}</h3>
     <span class='type'>Type: ${type}</span>
   </div>
-  </div> ${name}`;
+   ${name}`;
 
   pokeContainer.appendChild(pokemonEl);
 }
