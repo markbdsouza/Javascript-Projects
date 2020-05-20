@@ -1,5 +1,3 @@
-console.log('asd');
-
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -12,7 +10,7 @@ function validateUserName() {
 
 function checkEmail(input) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(String(input).toLowerCase())) {
+  if (re.test(String(input.value).toLowerCase())) {
     showSuccess(input);
   } else {
     showError(input, 'Enter a valid email');
@@ -48,7 +46,6 @@ function checkRequired(inputArr) {
 
 function checkLength(input, min, max) {
   if (input.value.length < min || input.value.length > max) {
-    console.log('ERROR');
     showError(
       input,
       `${getFieldName(input)} needs to be between ${min} & ${max} length`
@@ -74,11 +71,6 @@ function validate(e) {
   checkLength(password, 6, 25);
   checkEmail(email);
   checkPasswordMatches(password, password2);
-  // if (username.value === '') {
-  //   showError(username, 'Username is required');
-  // } else {
-  //   showSuccess(username);
-  // }
 }
 
 form.addEventListener('submit', validate);
